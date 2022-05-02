@@ -58,7 +58,10 @@ namespace TestInterface
                 lines.Add(new Line(p1, p2));
                 AddLineToChart(new Line(p1, p2));
                 WriteFigureList();
-                lines.Sort();
+                var sortedLines = from l in lines
+                                    orderby l.X1, l.length
+                                    select l;
+                lines = sortedLines.ToList();
                 LineInfoBox.Text = "";
                 foreach (var item in lines)
                 {
@@ -102,24 +105,46 @@ namespace TestInterface
 
         private void GetSumShadow(object sender, EventArgs e)
         {
-            double sum = 0;
             LineInfoBox.Text = "";
+            foreach (var l in lines)
+            {
+                LineInfoBox.Text += l + "\n";
+            }
+            double sum = 0;
+            //LineInfoBox.Text = "";
             if (lines.Count > 1)
             {
                 for (int i = 0; i < lines.Count - 1; i++)
                 {
                     double X1 = lines[i].X1;
                     double X2 = lines[i].X2;
-                    double X3 = lines[i].X1;
-                    double X4 = lines[i].X2;
+                    double X3 = lines[i + 1].X1;
+                    double X4 = lines[i + 1].X2;
                     if (X2 > X3 && X2 < X4)
                     {
-                        LineInfoBox.Text += "$";
-                           sum += (X2 - X1) + (X4 - X3) - (X2 - X3);
+                        sum += (X3 - X1);
+                        if (i == lines.Count - 2)
+                        {
+                            sum += (X4 - X3);
+                        }
                     }
-                    else
+                    else if (X2 > X3 && X2 > X4)    
                     {
-                        sum += (X2 - X1) + (X4 - X3);
+                        sum += (X2 - X1);
+                        i++;
+                    }
+                    else if (X1 == X3 && X2 == X4)
+                    {
+                        sum += (X2 - X1);
+                        i++;
+                    }
+                    else if (X2 < X3 && X2 < X4)
+                    {
+                        sum += (X2 - X1);
+                        if (i == lines.Count - 2)
+                        {
+                            sum += (X4 - X3);
+                        }
                     }
                 }
                 LineInfoBox.Text += $"Суммарная длина теней: {sum}";

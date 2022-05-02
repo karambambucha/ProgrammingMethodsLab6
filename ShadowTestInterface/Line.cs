@@ -33,6 +33,7 @@ namespace TestInterface
 
         public int CompareTo(Line other)
         {
+            
 			return X1.CompareTo(other.X1);
 		}
     }
