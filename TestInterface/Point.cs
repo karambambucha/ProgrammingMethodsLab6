@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestInterface
+namespace QuadrilateralTestInterface
 {
-    internal class Point
+    public class Point
     {
         public double X { set; get; }
         public double Y { set; get; }
@@ -21,17 +21,13 @@ namespace TestInterface
         }
         public static bool operator ==(Point left, Point right)
         {
-            if (left.X == right.X && left.Y == right.Y)
-                return true;
-            else
-                return false;
+            if (object.ReferenceEquals(null, left))
+                return object.ReferenceEquals(null, right);
+            return left.Equals(right);
         }
         public static bool operator !=(Point left, Point right)
         {
-            if (left.X == right.X && left.Y == right.Y)
-                return false;
-            else
-                return true;
+            return !(left == right);
         }
     }
 }

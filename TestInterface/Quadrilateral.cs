@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestInterface
+namespace QuadrilateralTestInterface
 {
-	internal class Quadrilateral
+	public class Quadrilateral
 	{
 		public Point[] points { private set; get; }
 		private List<double> sides { set; get; }
@@ -40,10 +40,14 @@ namespace TestInterface
 		private void CalculateSides()
 		{
 			sides = new List<double>();
-			sides.Add(Math.Sqrt(Math.Pow(points[1].X - points[0].X, 2) + Math.Pow(points[1].Y - points[0].Y, 2)));
-			sides.Add(Math.Sqrt(Math.Pow(points[2].X - points[1].X, 2) + Math.Pow(points[2].Y - points[1].Y, 2)));
-			sides.Add(Math.Sqrt(Math.Pow(points[3].X - points[2].X, 2) + Math.Pow(points[3].Y - points[2].Y, 2)));
-			sides.Add(Math.Sqrt(Math.Pow(points[0].X - points[3].X, 2) + Math.Pow(points[0].Y - points[3].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[1].X - points[0].X, 2)
+				+ Math.Pow(points[1].Y - points[0].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[2].X - points[1].X, 2)
+				+ Math.Pow(points[2].Y - points[1].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[3].X - points[2].X, 2)
+				+ Math.Pow(points[3].Y - points[2].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[0].X - points[3].X, 2)
+				+ Math.Pow(points[0].Y - points[3].Y, 2)));
 		}
 		private double GetAngle(Point A, Point C, Point B)
 		{
@@ -63,6 +67,8 @@ namespace TestInterface
 		public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
 		{
 			points = new Point[4];
+			if (p1 == null || p2 == null || p3 == null || p4 == null)
+				throw new ArgumentNullException();
 			points[0] = p1;
 			points[1] = p2;
 			points[2] = p3;

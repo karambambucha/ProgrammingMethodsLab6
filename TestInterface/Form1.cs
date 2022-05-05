@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestInterface
+namespace QuadrilateralTestInterface
 {
     public partial class Form1 : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace TestInterface
+﻿namespace QuadrilateralTestInterface
 {
     partial class Form1
     {
