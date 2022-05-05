@@ -204,6 +204,7 @@
             // 
             // Point4Y
             // 
+            this.Point4Y.DecimalPlaces = 2;
             this.Point4Y.Location = new System.Drawing.Point(155, 244);
             this.Point4Y.Minimum = new decimal(new int[] {
             100,
@@ -216,6 +217,7 @@
             // 
             // Point4X
             // 
+            this.Point4X.DecimalPlaces = 2;
             this.Point4X.Location = new System.Drawing.Point(17, 244);
             this.Point4X.Minimum = new decimal(new int[] {
             100,
@@ -228,6 +230,7 @@
             // 
             // Point3Y
             // 
+            this.Point3Y.DecimalPlaces = 2;
             this.Point3Y.Location = new System.Drawing.Point(155, 184);
             this.Point3Y.Minimum = new decimal(new int[] {
             100,
@@ -240,6 +243,7 @@
             // 
             // Point3X
             // 
+            this.Point3X.DecimalPlaces = 2;
             this.Point3X.Location = new System.Drawing.Point(18, 184);
             this.Point3X.Minimum = new decimal(new int[] {
             100,
@@ -252,6 +256,7 @@
             // 
             // Point2Y
             // 
+            this.Point2Y.DecimalPlaces = 2;
             this.Point2Y.Location = new System.Drawing.Point(155, 116);
             this.Point2Y.Minimum = new decimal(new int[] {
             100,
@@ -264,6 +269,7 @@
             // 
             // Point2X
             // 
+            this.Point2X.DecimalPlaces = 2;
             this.Point2X.Location = new System.Drawing.Point(18, 116);
             this.Point2X.Minimum = new decimal(new int[] {
             100,
@@ -276,6 +282,7 @@
             // 
             // Point1Y
             // 
+            this.Point1Y.DecimalPlaces = 2;
             this.Point1Y.Location = new System.Drawing.Point(155, 56);
             this.Point1Y.Minimum = new decimal(new int[] {
             100,
@@ -298,6 +305,7 @@
             // 
             // Point1X
             // 
+            this.Point1X.DecimalPlaces = 2;
             this.Point1X.Location = new System.Drawing.Point(18, 56);
             this.Point1X.Minimum = new decimal(new int[] {
             100,
