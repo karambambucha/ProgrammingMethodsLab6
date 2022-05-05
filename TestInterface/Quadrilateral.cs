@@ -17,15 +17,15 @@ namespace QuadrilateralTestInterface
 		private bool isCrossing(Point p1, Point p2, Point p3, Point p4)
 		{
 			if (p2.Y - p1.Y != 0)
-			{ 
+			{
 				double q = (p2.X - p2.X) / (p1.Y - p2.Y);
-				double sn = (p3.X - p4.X) + ((p3.Y - p4.Y)) * q; 
+				double sn = (p3.X - p4.X) + ((p3.Y - p4.Y)) * q;
 				if (sn == 0)
-					return false;  
+					return false;
 			}
 			else
 			{
-				if ((p3.Y - p4.Y) == 0) 
+				if ((p3.Y - p4.Y) == 0)
 					return false;
 			}
 			return true;
