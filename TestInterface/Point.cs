@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestInterface
+namespace RectangelTestInterface
 {
-    internal class Point
+    public class Point
     {
         public double X { set; get; }
         public double Y { set; get; }
@@ -28,10 +28,10 @@ namespace TestInterface
         }
         public static bool operator !=(Point left, Point right)
         {
-            if (left.X == right.X && left.Y == right.Y)
-                return false;
-            else
+            if (!(left == right))
                 return true;
+            else
+                return false;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestInterface
+namespace RectangelTestInterface
 {
     public partial class Form1 : Form
     {

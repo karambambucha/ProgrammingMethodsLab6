@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestInterface.Properties
+namespace RectangelTestInterface.Properties
 {
 
 

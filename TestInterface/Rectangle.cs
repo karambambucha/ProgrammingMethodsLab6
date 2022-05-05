@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TestInterface
+namespace RectangelTestInterface
 {
-	internal class Rectangle
+	public class Rectangle
 	{
 		public List<Point> points { private set; get; }
 		private List<double> sides { set; get; }
@@ -39,7 +39,8 @@ namespace TestInterface
 			double Y2 = points[1].Y;
 			double Y3 = points[2].Y;
 			double Y4 = points[3].Y;
-			sides.Add(Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(X2 - X1, 2)
+				+ Math.Pow(Y2 - Y1, 2)));
 			sides.Add(Math.Sqrt(Math.Pow(X3 - X2, 2) + Math.Pow(Y3 - Y2, 2)));
 			sides.Add(Math.Sqrt(Math.Pow(X4 - X3, 2) + Math.Pow(Y4 - Y3, 2)));
 			sides.Add(Math.Sqrt(Math.Pow(X1 - X4, 2) + Math.Pow(Y1 - Y4, 2)));
@@ -102,18 +103,14 @@ namespace TestInterface
 			if (sides[0] == sides[2] && sides[1] == sides[3])
 			{
 				if (sides[0] == sides[1] && sides[1] == sides[2])
-				{
-					if (angles[0] == 90 && angles[1] == 90 && angles[2] == 90 && angles[3] == 90)
-					{
+					if (angles.All(x => x == 90))
 						return "Квадрат";
-					}
+                    else
 						return "Ромб";
-				}
-				else if (angles[0] == 90 && angles[1] == 90 && angles[2] == 90 && angles[3] == 90)
-				{
+				else if (angles.All(x => x == 90))
 					return "Прямоугольник";
-				}
-				return "Параллелограмм";
+				else
+                    return "Параллелограмм";
 			}
 			else if (IsParallel(points[0], points[1], points[2], points[3]) || IsParallel(points[1], points[2], points[3], points[0]))
 			{
