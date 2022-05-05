@@ -12,13 +12,12 @@ namespace TestInterface
 {
     public partial class Form1 : Form
     {
-        private Rectangle rectangle;
+        private Quadrilateral quadrilateral;
         public Form1()
         {
             InitializeComponent(); 
         }
-
-        private void AddRectangleToChart(Rectangle rec)
+        private void AddRectangleToChart(Quadrilateral rec)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -38,8 +37,6 @@ namespace TestInterface
                 chart1.Series[i].Points.AddXY(x, y);
             }
         }
-
-
         private void TestButton_Click_1(object sender, EventArgs e)
         {
             Point p1 = new Point((double)Point1X.Value, (double)Point1Y.Value);
@@ -48,10 +45,11 @@ namespace TestInterface
             Point p4 = new Point((double)Point4X.Value, (double)Point4Y.Value);
             try
             {
-                rectangle = new Rectangle(p1, p2, p3, p4);
-                RectangleInfoBox.Text = rectangle.ToString();
+                quadrilateral = new Quadrilateral(p1, p2, p3, p4);
+
+                RectangleInfoBox.Text = quadrilateral.ToString();
                 chart1.Series.Clear();
-                AddRectangleToChart(rectangle);
+                AddRectangleToChart(quadrilateral);
             }
             catch (Exception ex)
             {

@@ -53,6 +53,7 @@ namespace TestInterface
 			smallDeterminatorMatrix[0, 1] = B;
 			smallDeterminatorMatrix[1, 0] = B;
 			smallDeterminatorMatrix[1, 1] = C;
+			Type = GetEquationType();
 		}
 		public static double[,] GetMinor(double[,] matrix, int row, int column)
 		{

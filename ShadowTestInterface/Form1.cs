@@ -17,16 +17,12 @@ namespace TestInterface
         {
             InitializeComponent();
         }
-        private void AddLineToChart(Equation eq)
-        {
-            
-        }
         
         private void TypeButton_Click(object sender, EventArgs e)
         {
             equation = new Equation((double)AUpDown.Value, (double)BUpDown.Value, (double)CUpDown.Value, (double)DUpDown.Value, (double)EUpDown.Value, (double)FUpDown.Value);
 
-            InfoBox.Text = equation.GetEquationType() + "\n";
+            InfoBox.Text = equation.Type + "\n";
             InfoBox.Text += equation.ToString() + "\n";
             InfoBox.Text += "Большой определитель: " + equation.BigDiscriminant +"\n";
             InfoBox.Text += "Малый определитель: " + equation.SmallDiscriminant +"\n";

@@ -7,42 +7,43 @@ using System.Windows.Forms;
 
 namespace TestInterface
 {
-	internal class Rectangle
+	internal class Quadrilateral
 	{
-		public List<Point> points { private set; get; }
+		public Point[] points { private set; get; }
 		private List<double> sides { set; get; }
 		private List<double> angles { set; get; }
 		public string FigureType { private set; get; }
+		public bool isQuadrilateral { private set; get; }
+		private bool isCrossing(Point p1, Point p2, Point p3, Point p4)
+		{
+			if (p2.Y - p1.Y != 0)
+			{ 
+				double q = (p2.X - p2.X) / (p1.Y - p2.Y);
+				double sn = (p3.X - p4.X) + ((p3.Y - p4.Y)) * q; 
+				if (sn == 0)
+					return false;  
+			}
+			else
+			{
+				if ((p3.Y - p4.Y) == 0) 
+					return false;
+			}
+			return true;
+		}
 		private void RearrangePoints()
 		{
-			double a1 = points[0].Y - points[2].Y;
-			double a2 = points[1].Y - points[3].Y;
-			double b1 = points[2].X - points[0].X;
-			double b2 = points[3].X - points[1].X;
-			if ((a1 / a2 < 0 && (double.IsNaN(b1 / b2)|| double.IsInfinity(b1 / b2)) ) || ((double.IsNaN(a1 / a2) || double.IsInfinity(a1 / a2)) && b1 / b2 < 0))
-			{
+			if (isCrossing(points[0], points[1], points[2], points[3]))
 				(points[1], points[2]) = (points[2], points[1]);
-			}
-			else if ((a1 / a2 > 0 && (double.IsNaN(b1 / b2) || double.IsInfinity(b1 / b2))) || ((double.IsNaN(a1 / a2) || double.IsInfinity(a1 / a2)) && b1 / b2 > 0))
-			{
+			else if (isCrossing(points[0], points[3], points[1], points[2]))
 				(points[2], points[3]) = (points[3], points[2]);
-			}
 		}
 		private void CalculateSides()
 		{
 			sides = new List<double>();
-			double X1 = points[0].X;
-			double X2 = points[1].X;
-			double X3 = points[2].X;
-			double X4 = points[3].X;
-			double Y1 = points[0].Y;
-			double Y2 = points[1].Y;
-			double Y3 = points[2].Y;
-			double Y4 = points[3].Y;
-			sides.Add(Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2)));
-			sides.Add(Math.Sqrt(Math.Pow(X3 - X2, 2) + Math.Pow(Y3 - Y2, 2)));
-			sides.Add(Math.Sqrt(Math.Pow(X4 - X3, 2) + Math.Pow(Y4 - Y3, 2)));
-			sides.Add(Math.Sqrt(Math.Pow(X1 - X4, 2) + Math.Pow(Y1 - Y4, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[1].X - points[0].X, 2) + Math.Pow(points[1].Y - points[0].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[2].X - points[1].X, 2) + Math.Pow(points[2].Y - points[1].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[3].X - points[2].X, 2) + Math.Pow(points[3].Y - points[2].Y, 2)));
+			sides.Add(Math.Sqrt(Math.Pow(points[0].X - points[3].X, 2) + Math.Pow(points[0].Y - points[3].Y, 2)));
 		}
 		private double GetAngle(Point A, Point C, Point B)
 		{
@@ -59,27 +60,27 @@ namespace TestInterface
 			angles.Add(GetAngle(points[2], points[3], points[0]));
 			angles.Add(GetAngle(points[3], points[0], points[1]));
 		}
-		public Rectangle(Point p1, Point p2, Point p3, Point p4)
+		public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
 		{
-			points = new List<Point>();
-			points.Add(p1);
-			points.Add(p2);
-			points.Add(p3);
-			points.Add(p4);
+			points = new Point[4];
+			points[0] = p1;
+			points[1] = p2;
+			points[2] = p3;
+			points[3] = p4;
 			RearrangePoints();
 			CalculateSides();
 			CalculateAngles();
-			FigureType = BoxTest();
+			FigureType = GetFigureType();
 		}
-		public Rectangle(List<Point> ps)
+		public Quadrilateral(List<Point> ps)
 		{
 			if (ps.Count == 4)
 			{
-				points = ps;
+				points = ps.ToArray();
 				RearrangePoints();
 				CalculateSides();
 				CalculateAngles();
-				FigureType = BoxTest();
+				FigureType = GetFigureType();
 			}
 			else
 			{
@@ -92,42 +93,41 @@ namespace TestInterface
 			double k2 = (p4.Y - p3.Y) / (p4.X - p3.X);
 			return (k1 == k2);
 		}
-		public string BoxTest()
+		public string GetFigureType()
 		{
+			isQuadrilateral = true;
 			if (points[0] == points[1] || points[0] == points[2] || points[0] == points[3] || points[1] == points[2] || points[1] == points[3] || points[2] == points[3])
-			{
 				throw new ArgumentException("Некоторые точки дублируются!");
+			if (angles.Contains(180) || angles.Contains(0))
+			{
+				isQuadrilateral = false;
+				return "Не четырехугольник";
 			}
-			
 			if (sides[0] == sides[2] && sides[1] == sides[3])
 			{
 				if (sides[0] == sides[1] && sides[1] == sides[2])
 				{
-					if (angles[0] == 90 && angles[1] == 90 && angles[2] == 90 && angles[3] == 90)
-					{
+					if (angles.All(x => x == 90))
 						return "Квадрат";
-					}
+					else
 						return "Ромб";
 				}
-				else if (angles[0] == 90 && angles[1] == 90 && angles[2] == 90 && angles[3] == 90)
-				{
+				else if (angles.All(x => x ==90))
 					return "Прямоугольник";
-				}
-				return "Параллелограмм";
+				else
+					return "Параллелограмм";
 			}
 			else if (IsParallel(points[0], points[1], points[2], points[3]) || IsParallel(points[1], points[2], points[3], points[0]))
 			{
 				if (sides[0] == sides[2] || sides[1] == sides[3])
-				{
 					return "Равнобедренная трапеция";
-				}
-				if (angles.Contains(90))
-				{
+				else if (angles.Contains(90))
 					return "Прямоугольная трапеция";
-				}
-				return "Трапеция общего вида";
+				else 
+					return "Трапеция общего вида";
 			}
-			return  "Четырехугольник общего вида";
+			else
+				return "Четырехугольник общего вида";
 		}
 		public override string ToString()
 		{
@@ -138,13 +138,16 @@ namespace TestInterface
 			{
 				points_str.Append($"[{p}]\n");
 			}
-			foreach (var s in sides)
-			{
-				sides_str.Append($"{s}\n");
-			}
-			foreach (var a in angles)
-			{
-				angles_str.Append($"{a}\n");
+            if (isQuadrilateral)
+            {
+				foreach (var s in sides)
+				{
+					sides_str.Append($"{s}\n");
+				}
+				foreach (var a in angles)
+				{
+					angles_str.Append($"{a}\n");
+				}
 			}
 			return $"{FigureType} с точками:\n{points_str}Стороны:\n{sides_str}Углы:\n{angles_str}";
 		}
