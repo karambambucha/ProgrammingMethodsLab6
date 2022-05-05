@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangleTestInterface", "TestInterface\RectangleTestInterface.csproj", "{AE2AC2F1-0E2B-4B04-828D-29C750CDD65A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShadowTestInterface", "ShadowTestInterface\ShadowTestInterface.csproj", "{1E5A9CDD-1957-4538-AED5-1524E6D84BEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquasionTestInterface", "ShadowTestInterface\EquasionTestInterface.csproj", "{1E5A9CDD-1957-4538-AED5-1524E6D84BEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

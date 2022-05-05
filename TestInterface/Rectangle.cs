@@ -107,7 +107,7 @@ namespace TestInterface
 					{
 						return "Квадрат";
 					}
-					return "Ромб";
+						return "Ромб";
 				}
 				else if (angles[0] == 90 && angles[1] == 90 && angles[2] == 90 && angles[3] == 90)
 				{

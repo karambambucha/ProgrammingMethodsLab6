@@ -30,28 +30,32 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.LineX2 = new System.Windows.Forms.NumericUpDown();
-            this.label9 = new System.Windows.Forms.Label();
-            this.LineInfoBox = new System.Windows.Forms.RichTextBox();
-            this.AddLineButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LineY = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LineX1 = new System.Windows.Forms.NumericUpDown();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button2 = new System.Windows.Forms.Button();
+            this.AUpDown = new System.Windows.Forms.NumericUpDown();
+            this.BUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CUpDown = new System.Windows.Forms.NumericUpDown();
+            this.DUpDown = new System.Windows.Forms.NumericUpDown();
+            this.EUpDown = new System.Windows.Forms.NumericUpDown();
+            this.FUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TypeButton = new System.Windows.Forms.Button();
+            this.InfoBox = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LineX2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineY)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineX1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -62,19 +66,20 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.InfoBox);
+            this.splitContainer1.Panel1.Controls.Add(this.TypeButton);
+            this.splitContainer1.Panel1.Controls.Add(this.label6);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.LineX2);
-            this.splitContainer1.Panel1.Controls.Add(this.label9);
-            this.splitContainer1.Panel1.Controls.Add(this.LineInfoBox);
-            this.splitContainer1.Panel1.Controls.Add(this.AddLineButton);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.LineY);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.LineX1);
+            this.splitContainer1.Panel1.Controls.Add(this.FUpDown);
+            this.splitContainer1.Panel1.Controls.Add(this.EUpDown);
+            this.splitContainer1.Panel1.Controls.Add(this.DUpDown);
+            this.splitContainer1.Panel1.Controls.Add(this.CUpDown);
+            this.splitContainer1.Panel1.Controls.Add(this.BUpDown);
+            this.splitContainer1.Panel1.Controls.Add(this.AUpDown);
             // 
             // splitContainer1.Panel2
             // 
@@ -82,134 +87,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(935, 535);
             this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 26;
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(155, 183);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 40);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "Удалить прямую";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.DeleteFigure);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 180);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 16);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Удаление прямой";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 199);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 32);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Координата X\r\n2 точки";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LineX2
-            // 
-            this.LineX2.Location = new System.Drawing.Point(18, 138);
-            this.LineX2.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.LineX2.Name = "LineX2";
-            this.LineX2.Size = new System.Drawing.Size(120, 22);
-            this.LineX2.TabIndex = 44;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(97, 338);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 16);
-            this.label9.TabIndex = 43;
-            this.label9.Text = "Результаты";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LineInfoBox
-            // 
-            this.LineInfoBox.Location = new System.Drawing.Point(12, 357);
-            this.LineInfoBox.Name = "LineInfoBox";
-            this.LineInfoBox.ReadOnly = true;
-            this.LineInfoBox.Size = new System.Drawing.Size(263, 166);
-            this.LineInfoBox.TabIndex = 42;
-            this.LineInfoBox.Text = "";
-            // 
-            // AddLineButton
-            // 
-            this.AddLineButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AddLineButton.Location = new System.Drawing.Point(155, 120);
-            this.AddLineButton.Name = "AddLineButton";
-            this.AddLineButton.Size = new System.Drawing.Size(120, 40);
-            this.AddLineButton.TabIndex = 41;
-            this.AddLineButton.Text = "Добавить прямую";
-            this.AddLineButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.AddLineButton.UseVisualStyleBackColor = true;
-            this.AddLineButton.Click += new System.EventHandler(this.AddLineButton_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 32);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Координата Y\r\nпрямой\r\n";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LineY
-            // 
-            this.LineY.Location = new System.Drawing.Point(155, 56);
-            this.LineY.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.LineY.Name = "LineY";
-            this.LineY.Size = new System.Drawing.Size(120, 22);
-            this.LineY.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 32);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Координата X\r\n1 точки";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LineX1
-            // 
-            this.LineX1.Location = new System.Drawing.Point(18, 56);
-            this.LineX1.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
-            this.LineX1.Name = "LineX1";
-            this.LineX1.Size = new System.Drawing.Size(120, 22);
-            this.LineX1.TabIndex = 25;
             // 
             // chart1
             // 
@@ -229,17 +106,119 @@
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // button2
+            // AUpDown
             // 
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(88, 280);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 40);
-            this.button2.TabIndex = 48;
-            this.button2.Text = "Посчитать сумму теней";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.GetSumShadow);
+            this.AUpDown.Location = new System.Drawing.Point(12, 29);
+            this.AUpDown.Name = "AUpDown";
+            this.AUpDown.Size = new System.Drawing.Size(90, 22);
+            this.AUpDown.TabIndex = 2;
+            // 
+            // BUpDown
+            // 
+            this.BUpDown.Location = new System.Drawing.Point(108, 29);
+            this.BUpDown.Name = "BUpDown";
+            this.BUpDown.Size = new System.Drawing.Size(90, 22);
+            this.BUpDown.TabIndex = 3;
+            // 
+            // CUpDown
+            // 
+            this.CUpDown.Location = new System.Drawing.Point(204, 29);
+            this.CUpDown.Name = "CUpDown";
+            this.CUpDown.Size = new System.Drawing.Size(90, 22);
+            this.CUpDown.TabIndex = 3;
+            // 
+            // DUpDown
+            // 
+            this.DUpDown.Location = new System.Drawing.Point(12, 77);
+            this.DUpDown.Name = "DUpDown";
+            this.DUpDown.Size = new System.Drawing.Size(90, 22);
+            this.DUpDown.TabIndex = 4;
+            // 
+            // EUpDown
+            // 
+            this.EUpDown.Location = new System.Drawing.Point(108, 77);
+            this.EUpDown.Name = "EUpDown";
+            this.EUpDown.Size = new System.Drawing.Size(90, 22);
+            this.EUpDown.TabIndex = 5;
+            // 
+            // FUpDown
+            // 
+            this.FUpDown.Location = new System.Drawing.Point(204, 77);
+            this.FUpDown.Name = "FUpDown";
+            this.FUpDown.Size = new System.Drawing.Size(90, 22);
+            this.FUpDown.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "A";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(137, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(16, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "B";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(237, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "C";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(17, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "D";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(137, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(16, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "E";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(237, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 16);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "F";
+            // 
+            // TypeButton
+            // 
+            this.TypeButton.Location = new System.Drawing.Point(92, 129);
+            this.TypeButton.Name = "TypeButton";
+            this.TypeButton.Size = new System.Drawing.Size(126, 39);
+            this.TypeButton.TabIndex = 13;
+            this.TypeButton.Text = "Определить вид";
+            this.TypeButton.UseVisualStyleBackColor = true;
+            this.TypeButton.Click += new System.EventHandler(this.TypeButton_Click);
+            // 
+            // InfoBox
+            // 
+            this.InfoBox.Location = new System.Drawing.Point(12, 223);
+            this.InfoBox.Name = "InfoBox";
+            this.InfoBox.Size = new System.Drawing.Size(282, 96);
+            this.InfoBox.TabIndex = 2;
+            this.InfoBox.Text = "";
             // 
             // Form1
             // 
@@ -254,10 +233,13 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LineX2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineY)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineX1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,20 +247,21 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox LineInfoBox;
-        private System.Windows.Forms.Button AddLineButton;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown LineY;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown LineX1;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.NumericUpDown LineX2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown FUpDown;
+        private System.Windows.Forms.NumericUpDown EUpDown;
+        private System.Windows.Forms.NumericUpDown DUpDown;
+        private System.Windows.Forms.NumericUpDown CUpDown;
+        private System.Windows.Forms.NumericUpDown BUpDown;
+        private System.Windows.Forms.NumericUpDown AUpDown;
+        private System.Windows.Forms.RichTextBox InfoBox;
+        private System.Windows.Forms.Button TypeButton;
     }
 }
 
