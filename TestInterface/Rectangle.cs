@@ -7,6 +7,31 @@ using System.Windows.Forms;
 
 namespace RectangelTestInterface
 {
+	public class Line
+    {
+		public double a { private set; get; }
+		public double b { private set; get; }
+		public double c { private set; get; }
+		public Line (Point p1, Point p2)
+        {
+			a = p1.Y - p2.Y;
+			b = p1.Y - p2.Y;
+			c = -a * p1.X - b * p1.Y;
+			Norm();
+        }
+		private void Norm()
+        {
+			double z = Math.Sqrt(a * a + b * b);
+			if(Math.Abs(z)>1E-9)
+            {
+				a /= z;  b /= z;  c /= z;
+			}
+        }
+		public double dist(Point p)
+        {
+			return a * p.X + b * p.Y + c;
+        }
+	}
 	public class Rectangle
 	{
 		public Point[] points { private set; get; }
@@ -14,21 +39,19 @@ namespace RectangelTestInterface
 		private List<double> angles { set; get; }
 		public string FigureType { private set; get; }
 		public bool isQuadrilateral { private set; get; }
+		private double vector_mult(double ax, double ay, double bx, double by) //векторное произведение
+		{
+			return ax * by - bx * ay;
+		}
 		private bool isCrossing(Point p1, Point p2, Point p3, Point p4)
 		{
-			if (p2.Y - p1.Y != 0)
-			{
-				double q = (p2.X - p2.X) / (p1.Y - p2.Y);
-				double sn = (p3.X - p4.X) + ((p3.Y - p4.Y)) * q;
-				if (sn == 0)
-					return false;
-			}
-			else
-			{
-				if ((p3.Y - p4.Y) == 0)
-					return false;
-			}
-			return true;
+			double v1 = vector_mult(p4.X - p3.X, p4.Y - p3.Y, p1.X - p3.X, p1.Y - p3.Y);
+			double v2 = vector_mult(p4.X - p3.X, p4.Y - p3.Y, p2.X - p3.X, p2.Y - p3.Y);
+			double v3 = vector_mult(p2.X - p1.X, p2.Y - p1.Y, p3.X - p1.X, p3.Y - p1.Y);
+			double v4 = vector_mult(p2.X - p1.X, p2.Y - p1.Y, p4.X - p1.X, p4.Y - p1.Y);
+			if ((v1 * v2) < 0 && (v3 * v4) < 0)
+				return true;
+			return false;
 		}
 		private void RearrangePoints()
 		{

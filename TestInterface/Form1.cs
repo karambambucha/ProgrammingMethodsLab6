@@ -12,13 +12,13 @@ namespace RectangelTestInterface
 {
     public partial class Form1 : Form
     {
-        private System.Drawing.Rectangle rectangle;
+        private Rectangle rectangle;
         public Form1()
         {
             InitializeComponent(); 
         }
 
-        private void AddRectangleToChart(System.Drawing.Rectangle rec)
+        private void AddRectangleToChart(Rectangle rec)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -48,7 +48,7 @@ namespace RectangelTestInterface
             Point p4 = new Point((double)Point4X.Value, (double)Point4Y.Value);
             try
             {
-                rectangle = new System.Drawing.Rectangle(p1, p2, p3, p4);
+                rectangle = new Rectangle(p1, p2, p3, p4);
                 RectangleInfoBox.Text = rectangle.ToString();
                 chart1.Series.Clear();
                 AddRectangleToChart(rectangle);
