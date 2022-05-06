@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RectangelTestInterface;
+using EquationTestInterface;
 using System;
 
 namespace RectangelTest

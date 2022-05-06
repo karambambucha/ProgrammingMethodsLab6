@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RectangelTestInterface
+namespace EquationTestInterface
 {
-	internal class Equation
+	public class Equation
 	{
 		private double[,] bigDeterminatorMatrix;
 		private double[,] smallDeterminatorMatrix;

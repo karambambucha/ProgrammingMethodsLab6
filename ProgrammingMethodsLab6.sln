@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangelTest", "RectangelT
 		{AE2AC2F1-0E2B-4B04-828D-29C750CDD65A} = {AE2AC2F1-0E2B-4B04-828D-29C750CDD65A}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquationTest", "EquationTest\EquationTest.csproj", "{EC6653D1-D84E-4EAE-B98C-4450492DE0C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{DA315074-84AB-4197-A3AC-8A7B0C731054}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA315074-84AB-4197-A3AC-8A7B0C731054}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA315074-84AB-4197-A3AC-8A7B0C731054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6653D1-D84E-4EAE-B98C-4450492DE0C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6653D1-D84E-4EAE-B98C-4450492DE0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6653D1-D84E-4EAE-B98C-4450492DE0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6653D1-D84E-4EAE-B98C-4450492DE0C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

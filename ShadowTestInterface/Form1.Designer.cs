@@ -1,4 +1,4 @@
-﻿namespace RectangelTestInterface
+﻿namespace EquationTestInterface
 {
     partial class Form1
     {
