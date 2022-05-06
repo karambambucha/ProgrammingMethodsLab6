@@ -8,8 +8,8 @@ namespace RectangelTestInterface
 {
     public class Point
     {
-        public  double X { set; get; }
-        public  double Y { set; get; }
+        public double X { set; get; }
+        public double Y { set; get; }
         public Point(double _x, double _y)
         {
             X = _x;
@@ -19,7 +19,15 @@ namespace RectangelTestInterface
         {
             return $"{X}, {Y}";
         }
-        //public bool operation==(Point right) {
-
+        public static bool operator ==(Point left, Point right)
+        {
+            if (left is null || right is null)
+                return left is null && right is null;
+            return left.X == right.X && left.Y == right.Y;
+        }
+        public static bool operator !=(Point left, Point right)
+        {
+            return !(left == right);
+        }
     }
 }

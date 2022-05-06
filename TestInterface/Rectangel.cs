@@ -32,7 +32,7 @@ namespace RectangelTestInterface
 			return a * p.X + b * p.Y + c;
         }
 	}
-	public class Rectangle
+	public class Quadrilateral
 	{
 		public Point[] points { private set; get; }
 		private List<double> sides { set; get; }
@@ -87,7 +87,7 @@ namespace RectangelTestInterface
 			angles.Add(GetAngle(points[2], points[3], points[0]));
 			angles.Add(GetAngle(points[3], points[0], points[1]));
 		}
-		public Rectangle(Point p1, Point p2, Point p3, Point p4)
+		public Quadrilateral(Point p1, Point p2, Point p3, Point p4)
 		{
 			points = new Point[4];
 			if (p1 == null || p2 == null || p3 == null || p4 == null)
@@ -101,7 +101,7 @@ namespace RectangelTestInterface
 			CalculateAngles();
 			FigureType = GetFigureType();
 		}
-		public Rectangle(List<Point> ps)
+		public Quadrilateral(List<Point> ps)
 		{
 			if (ps.Count == 4)
 			{
@@ -125,8 +125,8 @@ namespace RectangelTestInterface
 		public string GetFigureType()
 		{
 			isQuadrilateral = true;
-			if (points[0].Equals(points[1]) || points[0].Equals(points[2]) || points[0].Equals(points[3]) || points[1].Equals(points[2]) || points[1].Equals(points[3]) || points[2].Equals(points[3]))
-				throw new ArgumentException("Некоторые точки дублируются!");
+			if (points[0] == points[1] || points[0] == points[2] || points[0] == points[3] || points[1] == points[2] || points[1] == points[3] || points[2] == points[3])
+				return "Некоторые точки дублируются!";
 			if (angles.Contains(180) || angles.Contains(0))
 			{
 				isQuadrilateral = false;
