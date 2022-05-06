@@ -19,5 +19,7 @@ namespace RectangelTestInterface
         {
             return $"{X}, {Y}";
         }
+        //public bool operation==(Point right) {
+
     }
 }

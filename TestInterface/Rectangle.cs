@@ -125,7 +125,7 @@ namespace RectangelTestInterface
 		public string GetFigureType()
 		{
 			isQuadrilateral = true;
-			if (points[0] == points[1] || points[0] == points[2] || points[0] == points[3] || points[1] == points[2] || points[1] == points[3] || points[2] == points[3])
+			if (points[0].Equals(points[1]) || points[0].Equals(points[2]) || points[0].Equals(points[3]) || points[1].Equals(points[2]) || points[1].Equals(points[3]) || points[2].Equals(points[3]))
 				throw new ArgumentException("Некоторые точки дублируются!");
 			if (angles.Contains(180) || angles.Contains(0))
 			{

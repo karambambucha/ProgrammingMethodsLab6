@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RectangleTestInterface;
+using RectangelTestInterface;
 using System;
 
 namespace RectangelTest
@@ -15,7 +15,7 @@ namespace RectangelTest
             Point point3 = new Point(-1, 1);
             Point point4 = new Point(1, -1);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Квадрат", rect.BoxTest());
+            Assert.AreEqual("Квадрат", rect.GetFigureType());
         }
         [TestMethod]
         public void RhombTest()
@@ -25,7 +25,7 @@ namespace RectangelTest
             Point point3 = new Point(0, 2);
             Point point4 = new Point(0, -2);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Ромб", rect.BoxTest());
+            Assert.AreEqual("Ромб", rect.GetFigureType());
         }
         [TestMethod]
         public void RectangleTest()
@@ -35,7 +35,7 @@ namespace RectangelTest
             Point point3 = new Point(2, 1);
             Point point4 = new Point(2, -1);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Прямоугольник", rect.BoxTest());
+            Assert.AreEqual("Прямоугольник", rect.GetFigureType());
         }
         [TestMethod]
         public void ParallelogramTest()
@@ -45,7 +45,7 @@ namespace RectangelTest
             Point point3 = new Point(2, 1);
             Point point4 = new Point(1, -1);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Параллелограмм", rect.BoxTest());
+            Assert.AreEqual("Параллелограмм", rect.GetFigureType());
         }
         [TestMethod]
         public void IsoscelesTrapezoidTest()
@@ -55,7 +55,7 @@ namespace RectangelTest
             Point point3 = new Point(2, -1);
             Point point4 = new Point(-2, -1);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Равнобедренная трапеция", rect.BoxTest());
+            Assert.AreEqual("Равнобедренная трапеция", rect.GetFigureType());
         }
         [TestMethod]
         public void RectangularTrapezoidTest()
@@ -65,7 +65,7 @@ namespace RectangelTest
             Point point3 = new Point(2, -1);
             Point point4 = new Point(-1, -1);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Прямоугольная трапеция", rect.BoxTest());
+            Assert.AreEqual("Прямоугольная трапеция", rect.GetFigureType());
         }
         [TestMethod]
         public void CammonTrapezoidTest()
@@ -75,7 +75,7 @@ namespace RectangelTest
             Point point3 = new Point(1, 1);
             Point point4 = new Point(2, 1);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Трапеция общего вида", rect.BoxTest());
+            Assert.AreEqual("Трапеция общего вида", rect.GetFigureType());
         }
         [TestMethod]
         public void CommonQuadrilateralTest()
@@ -85,8 +85,51 @@ namespace RectangelTest
             Point point3 = new Point(2, 6);
             Point point4 = new Point(7, 2);
             Rectangle rect = new Rectangle(point1, point2, point3, point4);
-            Assert.AreEqual("Четырехугольник общего вида", rect.BoxTest());
+            Assert.AreEqual("Четырехугольник общего вида", rect.GetFigureType());
         }
+
+        [TestMethod]
+        public void TriangleTest()
+        {
+            Point point1 = new Point(1, 0);
+            Point point2 = new Point(0, 0);
+            Point point3 = new Point(-1, 0);
+            Point point4 = new Point(0, 2);
+            Rectangle rect = new Rectangle(point1, point2, point3, point4);
+            Assert.AreEqual("Не четырехугольник", rect.GetFigureType());
+        }
+        [TestMethod]
+        public void LineTest()
+        {
+            Point point1 = new Point(1, 0);
+            Point point2 = new Point(2, 0);
+            Point point3 = new Point(3, 0);
+            Point point4 = new Point(4, 0);
+            Rectangle rect = new Rectangle(point1, point2, point3, point4);
+            Assert.AreEqual("Не четырехугольник", rect.GetFigureType());
+        }
+
+        [TestMethod]
+        public void SamePointTest()
+        {
+            Point point1 = new Point(1, 1);
+            Point point2 = new Point(-1, -1);
+            Point point3 = new Point(-1, 1);
+            Point point4 = new Point(1, 1);
+            Rectangle rect = new Rectangle(point1, point2, point3, point4);
+            try
+            {
+                Assert.AreEqual("Некоторые точки дублируются!", rect.GetFigureType());
+                            }
+            catch (Exception e)
+            {
+                if (e.Message == "Некоторые точки дублируются!")
+                    return;
+                Assert.Fail("Ожидалось исключение ArgumentException(Некоторые точки дублируются), но появилось другое исключение");
+            }
+            Assert.Fail("Ожидалось исключение ArgumentException(Некоторые точки дублируются), но исключение не появилось");
+        }
+
 
     }
     [TestClass]
